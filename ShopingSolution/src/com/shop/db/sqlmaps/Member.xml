@@ -18,6 +18,12 @@
 		values(mnum_seq.nextval,#id#,#pwd#,#name#,#email#,#address#,#phone#)
 	</update>
 	
+	<select id="getMember" parameterClass="str" resultClass="member">
+		SELECT *
+		FROM member
+		WHERE id=#id#
+	</select>
+	
 	<!-- id, pwd 찾기에 필요한 쿼리  -->
 	<select id="selectIdNameWithEmail" parameterClass="map" resultClass="str">
 		SELECT id

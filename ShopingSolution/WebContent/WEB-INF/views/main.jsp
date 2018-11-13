@@ -13,10 +13,14 @@
 	<c:if test="${ !empty message }">
 		<script> alert('${message}'); </script>
 	</c:if> 
+	<button type="button" onclick="loginForm_go();">로그인</button>
 	<button type="button" onclick="findId_go();">아이디 찾기</button>
 	<button type="button" onclick="findPwd_go();">비밀번호 찾기</button>
 </body>
 <script>
+	function loginForm_go(){
+		location.href = "loginForm.do";
+	}
 	function findId_go(){
 		location.href = "findIdFormAction.do";
 	}

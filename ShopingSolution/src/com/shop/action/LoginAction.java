@@ -31,7 +31,7 @@ public class LoginAction implements Action{
 		MemberVO member = null;
 		
 		try{
-			member=memberDAO.getMember(id);
+			member = memberDAO.getMember(id);
 		}catch (SQLException e){
 			e.printStackTrace();
 		}
@@ -43,6 +43,8 @@ public class LoginAction implements Action{
 			}else{
 				session.setAttribute("message", "로그인 실패했습니다.");
 			}
+		}else {
+			session.setAttribute("message", "입력한 아이디가 존재하지 않습니다.");
 		}
 		return url;
 	}
