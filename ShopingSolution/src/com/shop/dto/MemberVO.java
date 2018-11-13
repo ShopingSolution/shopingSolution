@@ -1,7 +1,6 @@
 package com.shop.dto;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 public class MemberVO {
 	private String id;
