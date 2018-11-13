@@ -8,17 +8,19 @@ public class MemberVO {
 	private String pwd;
 	private String name;
 	private String email;
-	private List<MemberAddressVO> address;
+	private String address;
+	private String zipNum;
 	private String phone;
 	private Timestamp indate;
 	private String emailyn;
 	
 	public MemberVO(){}
-	public MemberVO(String id, String pwd, String name, String email, String phone,
+	public MemberVO(String id, String pwd, String name, String email, String address, String zipNum, String phone,
 			String emailyn){
-		this(id, pwd, name, email, null, phone, null, emailyn);
+		this(id, pwd, name, email, address, zipNum, phone, null, emailyn);
+		
 	}
-	public MemberVO(String id, String pwd, String name, String email, List<MemberAddressVO> address, String phone,
+	public MemberVO(String id, String pwd, String name, String email, String address, String zipNum, String phone,
 			Timestamp indate, String emailyn) {
 		super();
 		this.id = id;
@@ -26,6 +28,7 @@ public class MemberVO {
 		this.name = name;
 		this.email = email;
 		this.address = address;
+		this.zipNum = zipNum;
 		this.phone = phone;
 		this.indate = indate;
 		this.emailyn = emailyn;
@@ -54,11 +57,17 @@ public class MemberVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public List<MemberAddressVO> getAddress() {
+	public String getAddress() {
 		return address;
 	}
-	public void setAddress(List<MemberAddressVO> address) {
+	public void setAddress(String address) {
 		this.address = address;
+	}
+	public String getZipNum() {
+		return zipNum;
+	}
+	public void setZipNum(String zipNum) {
+		this.zipNum = zipNum;
 	}
 	public String getPhone() {
 		return phone;
@@ -82,7 +91,7 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", pwd=" + pwd + ", name=" + name + ", email=" + email + ", address=" + address
-				+ ", phone=" + phone + ", indate=" + indate + ", emailyn=" + emailyn + "]";
+				+ ", zipNum=" + zipNum + ", phone=" + phone + ", indate=" + indate + ", emailyn=" + emailyn + "]";
 	}
 	
 }
