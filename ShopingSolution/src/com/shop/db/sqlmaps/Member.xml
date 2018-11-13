@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"  "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Member">
+	<typeAlias alias="str" type="java.lang.String" />
+	<typeAlias alias="int" type="java.lang.Integer" />
+	<typeAlias alias="member" type="com.shop.dto.MemberVO" />
+	<typeAlias alias="map" type="java.util.Map"/>
+	<!-- Here is Sample -->
+	<!-- <select id="confirmId" parameterClass="str" resultClass="str"> SELECT 
+		id FROM member WHERE id=#id# </select> -->
+
+	<update id="insertMember" parameterClass="member">
+		insert
+		into
+		member(mnum,id,pwd,name,email,address,phone)
+		values(mnum_seq.nextval,#id#,#pwd#,#name#,#email#,#address#,#phone#)
+	</update>
+	
+	<!-- id, pwd 찾기에 필요한 쿼리  -->
+	<select id="selectIdNameWithEmail" parameterClass="map" resultClass="str">
+		SELECT id
+		FROM member
+		WHERE name=#name# AND email=#email#
+	</select>
+	<select id="confirmIdWithEmail" parameterClass="map" resultClass="str">
+		SELECT id
+		FROM member
+		WHERE id=#id# AND email=#email#
+	</select>
+	<select id="selectPasswordById" parameterClass="str" resultClass="str">
+		SELECT pwd
+		FROM member
+		WHERE id=#id#
+	</select>
+	<update id="resetPassword" parameterClass="map">
+		UPDATE member
+		SET pwd=#pwd#
+		WHERE id=#id#
+	</update>
+
+</sqlMap>

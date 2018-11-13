@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+
+	<properties resource="com/shop/db/sqlconfig/sqlMapConfig.properties" />
+
+	<!-- 접속정보를 저장한 properties파일을 지정합니다. -->
+
+	<settings useStatementNamespaces="true" />
+		
+	<transactionManager type="JDBC">
+
+		<dataSource type="DBCP">
+
+			<property name="JDBC.Driver" value="${driver}" />
+			<property name="JDBC.ConnectionURL" value="${url}" />
+			<property name="JDBC.Username" value="${username}" />
+			<property name="JDBC.Password" value="${password}" />
+			
+		</dataSource>
+
+	</transactionManager>
+	
+	<sqlMap resource="com/shop/db/sqlmaps/Member.xml"/>
+</sqlMapConfig>
