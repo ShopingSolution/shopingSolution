@@ -7,6 +7,7 @@ import java.util.Map;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.shop.dao.MemberDAO;
 import com.shop.db.sqlconfig.IBatisDBConnector;
+import com.shop.dto.MemberVO;
 import com.shop.utils.Mailer;
 
 public class MemberDAOImpl implements MemberDAO {
@@ -18,6 +19,12 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	private SqlMapClient client = IBatisDBConnector.getSqlMapClient();
 	
+	@Override
+	public MemberVO getMember(String id) throws SQLException {
+		MemberVO member = (MemberVO) client.queryForObject("Member.getMember", id);
+		return member;
+	}
+
 	@Override
 	public String selectIdNameWithEmail(String name, String email) throws SQLException {
 		////////////////////////
