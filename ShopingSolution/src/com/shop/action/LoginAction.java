@@ -21,7 +21,7 @@ public class LoginAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url="redirect:index.do";
+		String url="redirect:main.do";
 		
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
@@ -39,8 +39,9 @@ public class LoginAction implements Action{
 		if(member!=null){
 			if(member.getPwd().equals(pwd)){
 				session.setAttribute("loginUser",member);
+				session.setAttribute("message", "로그인 성공했습니다.");
 			}else{
-				url="/member/login_fail.jsp";
+				session.setAttribute("message", "로그인 실패했습니다.");
 			}
 		}
 		return url;
