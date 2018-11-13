@@ -1,26 +1,26 @@
 package com.shop.dto;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public class MemberVO {
-	private int mNum;
 	private String id;
 	private String pwd;
 	private String name;
 	private String email;
-	private String address;
+	private List<MemberAddressVO> address;
 	private String phone;
 	private Timestamp indate;
-	private Timestamp outdate;
+	private String emailyn;
 	
 	public MemberVO(){}
-	public MemberVO(String id, String pwd, String name, String email, String address, String phone){
-		this(0, id, pwd, name, email, address, phone, null, null);
+	public MemberVO(String id, String pwd, String name, String email, String phone,
+			String emailyn){
+		this(id, pwd, name, email, null, phone, null, emailyn);
 	}
-	public MemberVO(int mNum, String id, String pwd, String name, String email, String address, String phone,
-			Timestamp indate, Timestamp outdate) {
+	public MemberVO(String id, String pwd, String name, String email, List<MemberAddressVO> address, String phone,
+			Timestamp indate, String emailyn) {
 		super();
-		this.mNum = mNum;
 		this.id = id;
 		this.pwd = pwd;
 		this.name = name;
@@ -28,13 +28,7 @@ public class MemberVO {
 		this.address = address;
 		this.phone = phone;
 		this.indate = indate;
-		this.outdate = outdate;
-	}
-	public int getmNum() {
-		return mNum;
-	}
-	public void setmNum(int mNum) {
-		this.mNum = mNum;
+		this.emailyn = emailyn;
 	}
 	public String getId() {
 		return id;
@@ -60,10 +54,10 @@ public class MemberVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getAddress() {
+	public List<MemberAddressVO> getAddress() {
 		return address;
 	}
-	public void setAddress(String address) {
+	public void setAddress(List<MemberAddressVO> address) {
 		this.address = address;
 	}
 	public String getPhone() {
@@ -78,17 +72,17 @@ public class MemberVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
-	public Timestamp getOutdate() {
-		return outdate;
+	public String getEmailyn() {
+		return emailyn;
 	}
-	public void setOutdate(Timestamp outdate) {
-		this.outdate = outdate;
+	public void setEmailyn(String emailyn) {
+		this.emailyn = emailyn;
 	}
 	
 	@Override
 	public String toString() {
-		return "MemberVO [mNum=" + mNum + ", id=" + id + ", pwd=" + pwd + ", name=" + name + ", email=" + email
-				+ ", address=" + address + ", phone=" + phone + ", indate=" + indate + ", outdate=" + outdate + "]";
+		return "MemberVO [id=" + id + ", pwd=" + pwd + ", name=" + name + ", email=" + email + ", address=" + address
+				+ ", phone=" + phone + ", indate=" + indate + ", emailyn=" + emailyn + "]";
 	}
 	
 }
